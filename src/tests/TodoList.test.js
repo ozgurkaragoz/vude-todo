@@ -2,6 +2,12 @@ import { mount } from '@vue/test-utils'
 import { expect, test } from 'vitest'
 import TodoList from '@/components/TodoList.vue'
 
+test('has correct placeholder text', () => {
+  const wrapper = mount(TodoList)
+  const input = wrapper.find('input')
+  expect(input.attributes('placeholder')).toBe('What needs to be done? Press enter to add...')
+})
+
 test('add item', async () => {
   const wrapper = mount(TodoList)
   const input = wrapper.find('input')
