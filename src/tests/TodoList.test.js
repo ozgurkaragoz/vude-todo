@@ -8,6 +8,28 @@ test('has correct placeholder text', () => {
   expect(input.attributes('placeholder')).toBe('What needs to be done? Press enter to add...')
 })
 
+test('loads items from local storage', () => {
+  const items = ['Todo 1', 'Todo 2']
+    const localStorageMock = (function() {
+      let store = {}
+      return {
+        getItem: function(key) {
+          return store[key] || null
+        },
+        setItem: function(key, value) {
+          store[key] = value.toString()
+        },
+        clear: function() {
+          store = {}
+        }
+      }
+    })()
+    Object.defineProperty(window, 'localStorage', { value: localStorageMock })
+    localStorage.setItem('items', JSON.stringify(items))
+    const wrapper = mount(TodoList)
+    expect(wrapper.vm.items).to.deep.equal(items)
+})
+
 test('add item', async () => {
   const wrapper = mount(TodoList)
   const input = wrapper.find('input')

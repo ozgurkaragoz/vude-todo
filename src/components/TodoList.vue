@@ -18,13 +18,21 @@ export default {
       items: [],
     };
   },
+  created() {
+    const items = localStorage.getItem('items');
+    if (items) {
+      this.items = JSON.parse(items);
+    }
+  },
   methods: {
     add() {
       this.items.push(this.newItem);
       this.newItem = "";
+      localStorage.setItem('items', JSON.stringify(this.items));
     },
     remove(index) {
       this.items.splice(index, 1);
+      localStorage.setItem('items', JSON.stringify(this.items));
     },
   },
 };
