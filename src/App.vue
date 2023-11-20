@@ -1,15 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <input v-model="newItem" @keyup.enter="add">
+    <ul>
+      <li v-for="(todo, index) in items" :key="index">
+        {{ todo }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      newItem: '',
+      items: []
+    }
+  },
+  methods: {
+    add() {
+      this.items.push(this.newItem);
+      this.newItem = '';
+    },
   }
 }
 </script>
