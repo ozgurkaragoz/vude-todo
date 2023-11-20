@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-    @apply bg-violet-50 h-full;
+  @apply bg-violet-50 h-full;
 }
