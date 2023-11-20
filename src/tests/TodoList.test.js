@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
 import { expect, test } from 'vitest'
-import App from '@/App.vue'
+import TodoList from '@/components/TodoList.vue'
 
 test('add item', async () => {
-  const wrapper = mount(App)
+  const wrapper = mount(TodoList)
   const input = wrapper.find('input')
   await input.setValue('New Todo')
   await input.trigger('keyup.enter')
@@ -11,7 +11,7 @@ test('add item', async () => {
 })
 
 test('remove item', async () => {
-  const wrapper = mount(App)
+  const wrapper = mount(TodoList)
   await wrapper.setData({ items: ['Todo 1', 'Todo 2'] })
   await wrapper.find('button').trigger('click')
   expect(wrapper.vm.items).not.toContain('Todo 1')
