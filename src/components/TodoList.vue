@@ -43,6 +43,8 @@ export default {
   },
   methods: {
     add() {
+      if (this.newItem.length === 0) return;
+
       this.items.push(this.newItem);
       this.newItem = "";
       localStorage.setItem("items", JSON.stringify(this.items));

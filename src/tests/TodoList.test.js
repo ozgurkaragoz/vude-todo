@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { expect, describe, it, beforeEach } from "vitest";
+import { expect, describe, it, vi, beforeEach, afterEach } from "vitest";
 import TodoList from "@/components/TodoList.vue";
 
 describe("TodoList", () => {
@@ -23,6 +23,10 @@ describe("TodoList", () => {
       };
     };
   });
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
 
   it("has correct placeholder text", () => {
     const wrapper = mount(TodoList);
@@ -58,6 +62,14 @@ describe("TodoList", () => {
     await input.setValue("New Todo");
     await input.trigger("keyup.enter");
     expect(wrapper.vm.items).toContain("New Todo");
+  });
+
+  it("dont add item if value is empty", async () => {
+    const wrapper = mount(TodoList);
+    const input = wrapper.find("input");
+    await input.setValue("");
+    await input.trigger("keyup.enter");
+    expect(wrapper.vm.items).not.toContain("");
   });
 
   it("remove item", async () => {
