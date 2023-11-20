@@ -2,6 +2,12 @@
 
 To run the app, you need to have [Node.js](https://nodejs.org/en/) installed. If you want to use docker, you need to have [Docker](https://www.docker.com/) installed.
 
+
+
+https://github.com/ozgurkaragoz/vue-todo/assets/6477375/d87a69c0-f72f-4c2f-822d-b6c5c0286d73
+
+
+
 ## Run with docker
 ```
 docker build -t vue-todo .
