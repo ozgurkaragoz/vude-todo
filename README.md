@@ -1,4 +1,12 @@
-# vue-todo
+# Vue Todo App
+
+To run the app, you need to have [Node.js](https://nodejs.org/en/) installed. If you want to use docker, you need to have [Docker](https://www.docker.com/) installed.
+
+## Run with docker
+```
+docker build -t vue-todo .
+docker run -it -p 8080:80 --rm --name vue-app-container vue-todo
+```
 
 ## Project setup
 ```
