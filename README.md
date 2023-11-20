@@ -20,5 +20,15 @@ npm run build
 npm run lint
 ```
 
+### Run tests
+```
+npm run test
+```
+
+### Run tests with coverage
+```
+npm run test:coverage
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
