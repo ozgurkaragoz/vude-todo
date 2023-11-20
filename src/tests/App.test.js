@@ -9,3 +9,10 @@ test('add item', async () => {
   await input.trigger('keyup.enter')
   expect(wrapper.vm.items).toContain('New Todo')
 })
+
+test('remove item', async () => {
+  const wrapper = mount(App)
+  await wrapper.setData({ items: ['Todo 1', 'Todo 2'] })
+  await wrapper.find('button').trigger('click')
+  expect(wrapper.vm.items).not.toContain('Todo 1')
+})
