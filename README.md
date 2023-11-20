@@ -14,6 +14,8 @@ docker build -t vue-todo .
 docker run -it -p 8080:80 --rm --name vue-app-container vue-todo
 ```
 
+Then visit [http://localhost:8080](http://localhost:8080) in your browser.
+
 ## Project setup
 ```
 npm install
