@@ -10,6 +10,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "canvas-confetti": "^1.9.1",
     "core-js": "^3.8.3",
     "vue": "^3.2.13"
   },
